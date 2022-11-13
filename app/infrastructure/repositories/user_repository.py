@@ -2,16 +2,21 @@ from app.infrastructure.config import DBConnectionHandler
 from app.infrastructure.models import User
 
 
-class FakerRepo:
-    """A simple Repository"""
+class UserRepository:
+    """Class to manager User Repository"""
 
     @classmethod
     def insert(cls):
-        """A simple insert method"""
+        """
+        Insert data into user entity
+        :params - name: person name
+                - password: user password
+        :return
+        """
 
         with DBConnectionHandler() as connection:
             try:
-                user = User(name="gnunes1530", password="j1k2l3153")
+                user = User("teste", "teste")
                 connection.session.add(user)
                 connection.session.commit()
             except:

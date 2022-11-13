@@ -23,7 +23,7 @@ class Pet(Base):
     name = Column(String(20), nullable=False, unique=True)
     specie = Column(Enum(Species), nullable=False)
     age = Column(Integer)
-    user_id = Column(Integer, ForeignKey("user.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
 
     def __repr__(self):
         return f"Pet: [name={self.name}, specie={self.specie}, user_id={self.user_id}]"
